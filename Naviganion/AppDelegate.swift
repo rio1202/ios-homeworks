@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Netology_IB_Instruments
+//  Naviganion
 //
-//  Created by Daniil Ivanov on 18.03.2022.
+//  Created by Daniil Ivanov on 01.04.2022.
 //
 
 import UIKit
