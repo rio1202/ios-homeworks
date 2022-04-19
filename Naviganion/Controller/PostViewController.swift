@@ -10,7 +10,7 @@ import UIKit
 class PostViewController: UIViewController {
     
     var titelText = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray

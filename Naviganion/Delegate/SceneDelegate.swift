@@ -23,25 +23,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createProfileNC() -> UINavigationController {
-        let profileVC = ProfileViewController()
-        profileVC.title = "Профиль"
-        profileVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        let LogInVC = LogInViewController()
+        LogInVC.title = "Profile"
+        LogInVC.tabBarItem.image = UIImage(systemName: "person.crop.circle")
+        LogInVC.tabBarItem.title = "Profile"
         
-        return UINavigationController(rootViewController: profileVC)
+
+        
+        return UINavigationController(rootViewController: LogInVC)
     }
     
     func createFeedNC() -> UINavigationController {
         let feedVC = FeedViewController()
         feedVC.title = "Лента"
-        feedVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
+        feedVC.tabBarItem.image = UIImage(systemName: "house")
+        feedVC.tabBarItem.title = "Feed"
         
         return UINavigationController(rootViewController: feedVC)
     }
     
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemGreen
-        tabbar.viewControllers = [createProfileNC(), createFeedNC()]
+        UINavigationBar.appearance().backgroundColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().tintColor = .systemBlue
+        UITabBar.appearance().barTintColor = .white
+        tabbar.viewControllers = [createFeedNC(), createProfileNC()]
         
         return tabbar
     }
