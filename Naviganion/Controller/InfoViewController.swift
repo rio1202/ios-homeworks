@@ -8,11 +8,11 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemIndigo
-
+        
         addButton()
     }
     
@@ -28,7 +28,7 @@ class InfoViewController: UIViewController {
         alert.addAction(cancelButton)
         
         present(alert, animated: true, completion: nil)
-
+        
     }
     
     private func addButton() {
@@ -42,21 +42,16 @@ class InfoViewController: UIViewController {
         
         view.addSubview(mainButton)
         
-        let horizontalCenter = NSLayoutConstraint(item: mainButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0)
-        
-        let verticalCenter = NSLayoutConstraint(item: mainButton, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
-        
-        let width = NSLayoutConstraint(item: mainButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: 200)
-        
-        let hight = NSLayoutConstraint(item: mainButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 40)
-        
-        let constraints: [NSLayoutConstraint] = [horizontalCenter, verticalCenter, width, hight]
-        
-        NSLayoutConstraint.activate(constraints)
+        let buttonBottomAnchor = mainButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        let buttonLeadingAnchor = mainButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20)
+        let buttonTrailingAnchor = mainButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20)
+        let buttonHeightAnchor = mainButton.heightAnchor.constraint(equalToConstant: 50)
+        NSLayoutConstraint.activate([buttonBottomAnchor, buttonLeadingAnchor, buttonTrailingAnchor, buttonHeightAnchor].compactMap( {$0} ))
     }
+    
     
     private func showAlert() {
         print("alert")
     }
-
+    
 }
